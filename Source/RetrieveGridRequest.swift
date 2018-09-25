@@ -8,9 +8,9 @@
 import Foundation
 
 /**
- Request to generate a list of time windows for a specific order and time range.
+ Request to retrieve a grid with a list of time windows for a specific order and time range.
 */
-public struct GenerateTimeWindowsRequest: Encodable {
+public struct RetrieveGridRequest: Encodable {
     /**
      Postal address where the order has to be sent.
     */
@@ -48,7 +48,7 @@ public struct GenerateTimeWindowsRequest: Encodable {
      
      Example:
      ```
-     let request = GenerateTimeWindowsRequest(
+     let request = RetrieveGridRequest(
         address: "Avda. Diagonal 440, Barcelona",
         postalCode: "08037",
         elevator: true,

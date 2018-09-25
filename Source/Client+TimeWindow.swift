@@ -13,7 +13,7 @@ import Foundation
  - parameter response: Response from the api.
  - parameter error: Error when request has not finished correctly.
  */
-public typealias GenerateTimeWindowsRequestCompletionBlock = (_ response: GenerateTimeWindowsResponse?,_ error: Error?) -> Void
+public typealias RetrieveGridRequestCompletionBlock = (_ response: RetrieveGridResponse?,_ error: Error?) -> Void
 
 extension Client {
     /**
@@ -27,7 +27,7 @@ extension Client {
          Client.shared.baseUrl = "https://nektria.com/api/v1"
          Client.shared.apiId = "your-api-key"
      
-         let request = GenerateTimeWindowsRequest(
+         let request = RetrieveGridRequest(
             address: "Avda Diagonal 440",
             postalCode: "08015",
             elevator: true
@@ -36,12 +36,12 @@ extension Client {
             endTime: "2018-09-27 22:00"
          )
      
-         Client.shared.generate(with: request) { (response, error) in
+         Client.shared.retrieveGrid(with: request) { (response, error) in
             // ...
          }
      ```
     */
-    public func generate(with request: GenerateTimeWindowsRequest, completion: @escaping GenerateTimeWindowsRequestCompletionBlock) -> Void {
+    public func retrieveGrid(with request: RetrieveGridRequest, completion: @escaping RetrieveGridRequestCompletionBlock) -> Void {
         let jsonEncoder = JSONEncoder()
         let body = try! jsonEncoder.encode(request)
         
@@ -64,7 +64,7 @@ extension Client {
      
      - parameter response: Response from the request.
     */
-    private func buildResponse(response: Response) -> GenerateTimeWindowsResponse? {
+    private func buildResponse(response: Response) -> RetrieveGridResponse? {
         let decoder = JSONDecoder()
         guard let jsonData = response.message.data(using: .utf8) else {
             return nil
@@ -74,7 +74,7 @@ extension Client {
             return nil
         }
         
-        return GenerateTimeWindowsResponse(
+        return RetrieveGridResponse(
             message: response.message,
             statusCode: response.statusCode,
             timeWindows: TimeWindowList(timeWindows: timeWindows)

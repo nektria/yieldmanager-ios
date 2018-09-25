@@ -13,13 +13,13 @@
 		6509ACBB2150CE9300F96B54 /* Client+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6509ACBA2150CE9300F96B54 /* Client+Location.swift */; };
 		655EA34E2154D73B003229D0 /* TimeWindowListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655EA34C2154D5BE003229D0 /* TimeWindowListTest.swift */; };
 		655EA353215501E4003229D0 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 655EA352215501E4003229D0 /* LICENSE */; };
-		65B00EDC21537BFA00110E9E /* GenerateTimeWindowsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B00EDB21537BFA00110E9E /* GenerateTimeWindowsRequest.swift */; };
+		65B00EDC21537BFA00110E9E /* RetrieveGridRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B00EDB21537BFA00110E9E /* RetrieveGridRequest.swift */; };
 		65B00EEB2153CCB900110E9E /* TimeWindowList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B00EE72153A61100110E9E /* TimeWindowList.swift */; };
 		65B00EEC2153CCC100110E9E /* TimeWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B00EE92153C9B800110E9E /* TimeWindow.swift */; };
 		65CCB4DF21527F4800A26AD7 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CCB4DE21527F4800A26AD7 /* Response.swift */; };
 		65CCB4E32152818F00A26AD7 /* CreateLocationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CCB4E22152818F00A26AD7 /* CreateLocationRequest.swift */; };
 		65CCB4E52152906600A26AD7 /* Client+TimeWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CCB4E42152906600A26AD7 /* Client+TimeWindow.swift */; };
-		65CCB4E7215293B800A26AD7 /* GenerateTimeWindowsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CCB4E6215293B800A26AD7 /* GenerateTimeWindowsResponse.swift */; };
+		65CCB4E7215293B800A26AD7 /* RetrieveGridResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CCB4E6215293B800A26AD7 /* RetrieveGridResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,13 +42,13 @@
 		6509ACBA2150CE9300F96B54 /* Client+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Client+Location.swift"; sourceTree = "<group>"; };
 		655EA34C2154D5BE003229D0 /* TimeWindowListTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeWindowListTest.swift; sourceTree = "<group>"; };
 		655EA352215501E4003229D0 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		65B00EDB21537BFA00110E9E /* GenerateTimeWindowsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateTimeWindowsRequest.swift; sourceTree = "<group>"; };
+		65B00EDB21537BFA00110E9E /* RetrieveGridRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrieveGridRequest.swift; sourceTree = "<group>"; };
 		65B00EE72153A61100110E9E /* TimeWindowList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeWindowList.swift; sourceTree = "<group>"; };
 		65B00EE92153C9B800110E9E /* TimeWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeWindow.swift; sourceTree = "<group>"; };
 		65CCB4DE21527F4800A26AD7 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		65CCB4E22152818F00A26AD7 /* CreateLocationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLocationRequest.swift; sourceTree = "<group>"; };
 		65CCB4E42152906600A26AD7 /* Client+TimeWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Client+TimeWindow.swift"; sourceTree = "<group>"; };
-		65CCB4E6215293B800A26AD7 /* GenerateTimeWindowsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateTimeWindowsResponse.swift; sourceTree = "<group>"; };
+		65CCB4E6215293B800A26AD7 /* RetrieveGridResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrieveGridResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +107,8 @@
 				6509ACBA2150CE9300F96B54 /* Client+Location.swift */,
 				65CCB4E42152906600A26AD7 /* Client+TimeWindow.swift */,
 				65CCB4DE21527F4800A26AD7 /* Response.swift */,
-				65B00EDB21537BFA00110E9E /* GenerateTimeWindowsRequest.swift */,
-				65CCB4E6215293B800A26AD7 /* GenerateTimeWindowsResponse.swift */,
+				65B00EDB21537BFA00110E9E /* RetrieveGridRequest.swift */,
+				65CCB4E6215293B800A26AD7 /* RetrieveGridResponse.swift */,
 				65CCB4E22152818F00A26AD7 /* CreateLocationRequest.swift */,
 				65B00EE72153A61100110E9E /* TimeWindowList.swift */,
 				65B00EE92153C9B800110E9E /* TimeWindow.swift */,
@@ -229,9 +229,9 @@
 				65CCB4E32152818F00A26AD7 /* CreateLocationRequest.swift in Sources */,
 				65CCB4DF21527F4800A26AD7 /* Response.swift in Sources */,
 				65B00EEB2153CCB900110E9E /* TimeWindowList.swift in Sources */,
-				65B00EDC21537BFA00110E9E /* GenerateTimeWindowsRequest.swift in Sources */,
+				65B00EDC21537BFA00110E9E /* RetrieveGridRequest.swift in Sources */,
 				6509ACBB2150CE9300F96B54 /* Client+Location.swift in Sources */,
-				65CCB4E7215293B800A26AD7 /* GenerateTimeWindowsResponse.swift in Sources */,
+				65CCB4E7215293B800A26AD7 /* RetrieveGridResponse.swift in Sources */,
 				65CCB4E52152906600A26AD7 /* Client+TimeWindow.swift in Sources */,
 				65B00EEC2153CCC100110E9E /* TimeWindow.swift in Sources */,
 				6509ACB9214FD8C400F96B54 /* Client.swift in Sources */,

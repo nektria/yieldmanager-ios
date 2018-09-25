@@ -7,14 +7,14 @@
 
 import Foundation
 
-public class GenerateTimeWindowsResponse: Response {
+public class RetrieveGridResponse: Response {
     /**
      List of time windows.
     */
     public let timeWindows: TimeWindowList?
     
     /**
-     GenerateTimeWindowsResponse initializer.
+     RetrieveGridResponse initializer.
      
      - parameter message: Message received from API endpoint.
      - parameter statusCode: Http status code received from API endpoint.
