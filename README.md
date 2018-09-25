@@ -3,6 +3,9 @@ Nektria gives an SDK to integrate the service of time windows closing. This SDK 
 
 - [Features](#features)
 - [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
 
 ## Features
 - Persist a location with its GPS.
