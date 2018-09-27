@@ -30,7 +30,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'YieldManager', '~> 0.0.1'
+    pod 'YieldManager', '~> 0.0.2'
 end
 ```
 Then, run the following command:

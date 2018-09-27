@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name              = "YieldManager"
-  s.version           = "0.0.1"
+  s.version           = "0.0.2"
   s.summary           = "Nektria gives an SDK to integrate the service of time windows closing"
   s.homepage          = "https://github.com/nektria/yieldmanager-ios"
   s.documentation_url = "https://github.com/nektria/yieldmanager-ios"
