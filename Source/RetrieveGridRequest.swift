@@ -7,6 +7,11 @@
 
 import Foundation
 
+public struct Coordinates: Encodable {
+    var latitude: Double
+    var longitude: Double
+}
+
 struct Location: Encodable {
     /**
      Postal address where the order has to be sent.
@@ -22,6 +27,11 @@ struct Location: Encodable {
      Indicates if the building has elevator.
     */
     public var elevator: Bool
+    
+    /**
+     Coordinates of the location (Optional)
+    */
+    public var coordinates: Coordinates?
 }
 
 /**
@@ -60,12 +70,21 @@ public struct RetrieveGridRequest: Encodable {
         postalCode: "08037",
         elevator: true,
         startTime: "2018/09/17 08:00",
-        endTime: "2018/09/24 20:00"
+        endTime: "2018/09/24 20:00",
+        coordinates: Coordinates(latitude: 41.38809, longitude: 2.12639)
      )
      ```
     */
-    public init(address: String, postalCode: String, elevator: Bool, weight: Int, startTime: String, endTime: String) {
-        self.location = Location(address: address, postalCode: postalCode, elevator: elevator)
+    public init(
+        address: String,
+        postalCode: String,
+        elevator: Bool,
+        weight: Int,
+        startTime: String,
+        endTime: String,
+        coordinates: Coordinates? = nil
+    ) {
+        self.location = Location(address: address, postalCode: postalCode, elevator: elevator, coordinates: coordinates)
         self.weight = weight
         self.timeRange = TimeRange(startTime: startTime, endTime: endTime)
     }
