@@ -74,11 +74,11 @@ Client.shared.baseUrl = "https://<your-dedicated-url>/api/v1"
 Client.shared.apiKey = "your-api-key"
 
 let request = CreateLocationRequest(
-    address: "Avda Diagonal 440",
+    address: "Avda Diagonal 440, Barcelona",
     postalCode: "08037",
     elevator: true
 )
-Client.shared.generate(with: request) { (response, error) in
+Client.shared.create(with: request) { (response, error) in
     // Request has finished.
 }
 ```
@@ -99,15 +99,13 @@ let request = GenerateTimeWindowsRequest(
     endTime: "2018/09/22 12:00"
 )
 
-Client.shared.generate(with: request) { (response, error) in
+Client.shared.retrieveGrid(with: request) { (response, error) in
     guard response != nil && response?.timeWindows != nil else {
         return
     }
-    
-    let closedTimeWindows = response?
-        .timeWindows?
-        .filter(by: .closed)
-    
+
+    let closedTimeWindows = response?.timeWindows?.filter(by: .closed)
+
     for closedTimeWindow in closedTimeWindows! {
         // ...
     }
@@ -118,4 +116,3 @@ This SDK is owned and maintained by [Nektria](https://www.nektria.com)
 
 ## License
 [See LICENSE](https://github.com/nektria/yieldmanager-ios/blob/master/LICENSE) for details.
-
