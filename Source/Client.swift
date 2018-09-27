@@ -133,7 +133,6 @@ extension Client {
         do {
             response = try decoder.decode(Response.self, from: jsonData)
         } catch {
-            let error = error
             return Response(message: responseBody, statusCode: statusCode)
         }
 
