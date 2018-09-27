@@ -16,64 +16,64 @@ public struct TimeRange: Encodable, Decodable {
     /**
      Start time in format string: *yyyy-MM-ddTHH:mm*
      */
-    let startTime: String
+    public let startTime: String
     
     /**
      End time in format string: *yyyy-MM-ddTHH:mm*
      */
-    let endTime: String
+    public let endTime: String
 }
 
 public struct TimeWindow: Decodable, Equatable {
     /**
      Time window unique identifier.
      */
-    let id: UUID
+    public let id: UUID
     
     /**
      Time window's name.
      */
-    let name: String
+    public let name: String
     
     /**
      Shift unique identifier *(From YieldManager platform)*
      */
-    let shiftId: UUID
+    public let shiftId: UUID
     
     /**
      Time range of the time window.
      */
-    let timeRange: TimeRange
+    public let timeRange: TimeRange
     
     /**
      State of the time window.
      */
-    let state: String
+    public let state: String
     
     /**
      Used capacity for the time window.
      */
-    let usedCapacity: Int
+    public let usedCapacity: Int
     
     /**
      Total capacity of the time window.
      */
-    let totalCapacity: Int
+    public let totalCapacity: Int
     
     /**
      Capacity threshold of the time window which determines when the orders restrictions rules will be applied.
      */
-    let orderCapacityThreshold: Int
+    public let orderCapacityThreshold: Int
     
     /**
      After exceeding the previous threshold, determines the maximum capacity allowance for new orders in this time window.
      */
-    let orderMaxCapacity: Int
+    public let orderMaxCapacity: Int
     
     /**
      List of postal codes where the time window serves.
      */
-    let postalCodes: [String]
+    public let postalCodes: [String]
     
     /**
      It compares two timewindows.

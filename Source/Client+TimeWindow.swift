@@ -55,6 +55,7 @@ extension Client {
                 completion(nil, error)
                 return
             }
+            
             completion(self.buildResponse(response: response!), error)
         }
     }
@@ -66,17 +67,21 @@ extension Client {
     */
     private func buildResponse(response: Response) -> RetrieveGridResponse? {
         let decoder = JSONDecoder()
-        guard let jsonData = response.message.data(using: .utf8) else {
-            return nil
+        let jsonData = response.message.data(using: .utf8)
+        
+        if !response.isSuccess() || jsonData == nil {
+            return RetrieveGridResponse(
+                message: response.message,
+                statusCode: response.statusCode!
+            )
         }
         
-        guard let timeWindows = try? decoder.decode( [TimeWindow].self, from: jsonData) else {
-            return nil
-        }
+        var timeWindows: [TimeWindow] = []
+        timeWindows = try! decoder.decode( [TimeWindow].self, from: jsonData!)
         
         return RetrieveGridResponse(
             message: response.message,
-            statusCode: response.statusCode,
+            statusCode: response.statusCode!,
             timeWindows: TimeWindowList(timeWindows: timeWindows)
         )
     }

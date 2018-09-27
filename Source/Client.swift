@@ -113,10 +113,32 @@ extension Client {
             if let data = data {
                 responseBody = String(bytes: data, encoding: .utf8)!
             }
-            
-            completion(Response(message: responseBody, statusCode: responseCode), error)
+            completion(self.buildResponse(responseBody: responseBody, statusCode: responseCode), error)
         }
-        
         task.resume()
+    }
+
+    /**
+     Builds the response including the time windows received from the API.
+
+     - parameter response: Response from the request.
+     */
+    private func buildResponse(responseBody: String, statusCode: Int) -> Response {
+        let decoder = JSONDecoder()
+        guard let jsonData = responseBody.data(using: .utf8) else {
+            return Response(message: responseBody, statusCode: statusCode)
+        }
+
+        let response: Response
+        do {
+            response = try decoder.decode(Response.self, from: jsonData)
+        } catch {
+            let error = error
+            return Response(message: responseBody, statusCode: statusCode)
+        }
+
+        response.statusCode = statusCode
+
+        return response
     }
 }

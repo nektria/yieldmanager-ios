@@ -11,7 +11,7 @@ public class RetrieveGridResponse: Response {
     /**
      List of time windows.
     */
-    public let timeWindows: TimeWindowList?
+    public var timeWindows: TimeWindowList?
     
     /**
      RetrieveGridResponse initializer.
@@ -23,5 +23,19 @@ public class RetrieveGridResponse: Response {
     init(message: String, statusCode: Int, timeWindows: TimeWindowList?) {
         self.timeWindows = timeWindows
         super.init(message: message, statusCode: statusCode)
+    }
+    
+    /**
+     RetrieveGridResponse initializer.
+     
+     - parameter message: Message received from API endpoint.
+     - parameter statusCode: Http status code received from API endpoint.
+     */
+    override init(message: String, statusCode: Int) {
+        super.init(message: message, statusCode: statusCode)
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
     }
 }

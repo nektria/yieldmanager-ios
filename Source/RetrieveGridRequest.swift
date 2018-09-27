@@ -7,10 +7,7 @@
 
 import Foundation
 
-/**
- Request to retrieve a grid with a list of time windows for a specific order and time range.
-*/
-public struct RetrieveGridRequest: Encodable {
+struct Location: Encodable {
     /**
      Postal address where the order has to be sent.
     */
@@ -25,6 +22,16 @@ public struct RetrieveGridRequest: Encodable {
      Indicates if the building has elevator.
     */
     public var elevator: Bool
+}
+
+/**
+ Request to retrieve a grid with a list of time windows for a specific order and time range.
+*/
+public struct RetrieveGridRequest: Encodable {
+    /**
+     Order location
+    */
+    var location: Location
     
     /**
      Order weight in grams.
@@ -58,9 +65,7 @@ public struct RetrieveGridRequest: Encodable {
      ```
     */
     public init(address: String, postalCode: String, elevator: Bool, weight: Int, startTime: String, endTime: String) {
-        self.address = address
-        self.postalCode = postalCode
-        self.elevator = elevator
+        self.location = Location(address: address, postalCode: postalCode, elevator: elevator)
         self.weight = weight
         self.timeRange = TimeRange(startTime: startTime, endTime: endTime)
     }

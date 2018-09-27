@@ -7,16 +7,20 @@
 
 import Foundation
 
-public class Response {
+public class Response: Decodable {
     /**
      Response message.
     */
     public var message: String
     
+    var file: String?
+    
+    var line: Int?
+    
     /**
      Http status code.
     */
-    public var statusCode: Int
+    public var statusCode: Int?
     
     /**
      Initializer.
@@ -35,6 +39,6 @@ extension Response {
      Checks if the response status code is success.
     */
     public func isSuccess() -> Bool {
-        return statusCode >= 200 && statusCode < 300
+        return statusCode != nil && statusCode! >= 200 && statusCode! < 300
     }
 }
