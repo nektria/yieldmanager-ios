@@ -19,7 +19,7 @@ extension Client {
      ````
         Client.shared.baseUrl = url
         Client.shared.apiKey = apiKey
-        Client.timeout = 1000 // opcional
+        Client.timeout = 1000 // optional
      
         let request = CreateLocationRequest(
             address: "Avda Diagonal 440",

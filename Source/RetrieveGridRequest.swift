@@ -54,6 +54,11 @@ public struct RetrieveGridRequest: Encodable {
     public var timeRange: TimeRange
     
     /**
+     Number of product lines.
+    */
+    public var productLines: Int?
+    
+    /**
      It initializes the request with all required parameters.
      
      - parameter address: Postal address where the order has to be sent.
@@ -62,6 +67,8 @@ public struct RetrieveGridRequest: Encodable {
      - parameter weight: Order weight in grams.
      - parameter startTime: Date of the first time window. Format: yyyy/MM/dd HH:mm
      - parameter endTime: Date of the last time window. Format: yyyy/MM/dd HH:mm
+     - parameter coordinates: (Optional) Latitude and longitude.
+     - parameter productLines: (Optional) Number of product lines.
      
      Example:
      ```
@@ -71,7 +78,8 @@ public struct RetrieveGridRequest: Encodable {
         elevator: true,
         startTime: "2018/09/17 08:00",
         endTime: "2018/09/24 20:00",
-        coordinates: Coordinates(latitude: 41.38809, longitude: 2.12639)
+        coordinates: Coordinates(latitude: 41.38809, longitude: 2.12639),
+        productLines: 10
      )
      ```
     */
@@ -82,10 +90,12 @@ public struct RetrieveGridRequest: Encodable {
         weight: Int,
         startTime: String,
         endTime: String,
-        coordinates: Coordinates? = nil
+        coordinates: Coordinates? = nil,
+        productLines: Int? = nil
     ) {
         self.location = Location(address: address, postalCode: postalCode, elevator: elevator, coordinates: coordinates)
         self.weight = weight
         self.timeRange = TimeRange(startTime: startTime, endTime: endTime)
+        self.productLines = productLines
     }
 }
