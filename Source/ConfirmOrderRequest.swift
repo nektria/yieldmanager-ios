@@ -5,35 +5,52 @@
 // file that was distributed with this source code.
 //
 
+
 import Foundation
 
 /**
  Request to retrieve a grid with a list of time windows for a specific order and time range.
-*/
-public struct RetrieveGridRequest: Encodable {
+ */
+public struct ConfirmOrderRequest: Encodable {
+    /**
+     Properties used by the encoder.
+    */
+    enum CodingKeys: String, CodingKey {
+        case location
+        case weight
+        case timeRange
+        case productLines
+    }
+    
+    /**
+     Order number
+    */
+    var orderNumber: String
+
     /**
      Order location
-    */
+     */
     var location: Location
     
     /**
      Order weight in grams.
-    */
+     */
     public var weight: Int
     
     /**
      Time range of the first time window between the last time window.
-    */
+     */
     public var timeRange: TimeRange
     
     /**
      Number of product lines.
-    */
+     */
     public var productLines: Int?
     
     /**
      It initializes the request with all required parameters.
      
+     - parameter orderNumber: Order number.
      - parameter address: Postal address where the order has to be sent.
      - parameter postalCode: Postal code.
      - parameter elevator: Indicates if the building has elevator.
@@ -45,7 +62,8 @@ public struct RetrieveGridRequest: Encodable {
      
      Example:
      ```
-     let request = RetrieveGridRequest(
+     let request = ConfirmOrder(
+        orderNumber: "X0012003",
         address: "Avda. Diagonal 440, Barcelona",
         postalCode: "08037",
         elevator: true,
@@ -55,8 +73,9 @@ public struct RetrieveGridRequest: Encodable {
         productLines: 10
      )
      ```
-    */
+     */
     public init(
+        orderNumber: String,
         address: String,
         postalCode: String,
         elevator: Bool,
@@ -65,10 +84,15 @@ public struct RetrieveGridRequest: Encodable {
         endTime: String,
         coordinates: Coordinates? = nil,
         productLines: Int? = nil
-    ) {
+        ) {
+        self.orderNumber = orderNumber
         self.location = Location(address: address, postalCode: postalCode, elevator: elevator, coordinates: coordinates)
         self.weight = weight
         self.timeRange = TimeRange(startTime: startTime, endTime: endTime)
         self.productLines = productLines
+    }
+    
+    public func getOrderNumber() -> String {
+        return orderNumber
     }
 }
