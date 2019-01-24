@@ -7,14 +7,6 @@
 
 import Foundation
 
-/**
- Closure used on finish an api request.
- 
- - parameter response: Response from the api.
- - parameter error: Error when request has not finished correctly.
- */
-public typealias ConfirmOrderRequestCompletionBlock = (_ response: RetrieveGridResponse?,_ error: Error?) -> Void
-
 extension Client {
     /**
      Confirms an order.
