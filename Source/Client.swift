@@ -6,7 +6,7 @@
 ///
 
 import Foundation
-
+import UIKit
 /**
  Closure used on finish an api request.
  
@@ -99,6 +99,9 @@ extension Client {
         request.httpMethod = method
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.setValue(apiKey, forHTTPHeaderField: "X-API-ID")
+        request.setValue("0.0.4", forHTTPHeaderField: "X-SDK-VERSION")
+        request.setValue("ios", forHTTPHeaderField: "X-PLATFORM")
+        
         request.httpBody = resource
         
         let task = session.dataTask(with: request) {
