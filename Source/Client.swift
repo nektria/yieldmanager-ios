@@ -6,7 +6,7 @@
 ///
 
 import Foundation
-import UIKit
+
 /**
  Closure used on finish an api request.
  
